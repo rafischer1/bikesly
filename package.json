@@ -1,0 +1,26 @@
+{
+  "name": "q1-fischer-bikesly",
+  "version": "1.0.0",
+  "description": "bikesly - the bike share search engine",
+  "main": ".js/app.js",
+  "scripts": {
+    "mocha": "mocha",
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai-dom": "^1.8.0",
+    "chai": "^4.1.2",
+    "dom": "0.0.3",
+    "mocha": "^5.2.0"
+  },
+  "dev-dependencies": {
+    "chai": "^4.1.2",
+    "chai-dom": "^1.8.0",
+    "mocha": "^3.5.0"
+  },
+  "devDependencies": {
+    "ember-cli-materialize": "^0.22.0-beta.0"
+  }
+}

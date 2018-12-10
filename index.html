@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>BIKESLY</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css"
+      rel="stylesheet"
+      href="./css/materialize.min.css"
+      media="screen,projection" />
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Fugaz+One|Montserrat"
+      rel="stylesheet">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <!-- css -->
+    <link href="./css/style.css"
+      rel="stylesheet">
+    </script>
+    <!-- axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="container col-12">
+        <span class="loginHeader">
+          <button id="signInBtn">Sign In</button>
+          <button id="signUpHeader">Sign Up</button>
+          <p id="displayName"></p>
+          <br>
+          <button id="signOut">Sign Out</button>
+        </span>
+        <div class="logo-slogan">
+          <h1 class="logo">BIKESLY</h1>
+
+          <p class="tag-line">the city bike share search engine</p>
+
+        </div>
+        <hr>
+        <a class="qRefs"
+          href="#quickSearch">Quick Search   </a>
+        <a class="qRefs"
+          href="#tripPlanCard"> Trip Planning</a>
+        <!-- <h2> - the bike share search engine</h2> -->
+      </div>
+    </header>
+    <!-- //login -->
+    <div class="input-field validate teal lighten-2"
+      id="loginCard">
+      <a id="loginClose"
+        class="btn-floating">X
+      </a>
+      <br>
+      <form action="">
+        <label for="login"
+          id="userLabel">username</label>
+        <input class="validate"
+          id="userNameValidate"
+          type="text"
+          minlength="7"
+          name="username"
+          placeholder="bikesly123"
+          size="20"
+          focus>
+        <input class="validate"
+          type="submit"
+          id="loginSubmitBtn"
+          value="submit">
+        <hr>
+        <p class="signUP">Need an account? <a class="signUP"
+            href="">Sign Up!</a></p>
+      </form>
+    </div>
+    <div class="bothCards">
+      <article class="cards">
+        <div class="row quick1">
+          <div class="col s6 m6">
+            <div class="card">
+              <div class="card-image">
+                <img src="./images/bike-1.jpeg">
+                <span class="card-title">QUICK SEARCH</span>
+                <a class="btn-floating halfway-fab waves-effect waves-light red">
+               <i class="material-icons add" id="quickSearchCard">add</i></a>
+              </div>
+              <div class="card-content">
+                <p class="hidemeonphone">QUICK SEARCH</p>
+                <p>find what you need and quick!</p>
+                <ul>
+                  <li>bike company search</li>
+                  <li>current weather conditions</li>
+                  <li>international and U.S. destinations!</li>
+                  <li>happy cycling...</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="cards">
+        <div class="row trip1">
+          <div class="col s6 m6">
+            <div class="card">
+              <div class="card-image">
+                <img src="./images/bike-2.jpg">
+                <span class="card-title">TRIP PLANNING</span>
+                <a class="btn-floating halfway-fab waves-effect waves-light red">
+                 <i class="material-icons add" id="tripPlanCard">add</i></a>
+              </div>
+              <div class="card-content">
+                <p class="hidemeonphone">TRIP PLANNING</p>
+                <p>need a multi-city search?</p>
+                <ul>
+                  <li>find bike companies</li>
+                  <li>get upcoming weather</li>
+                  <li>search unique destinations</li>
+                  <li>save favorites to complete your trip</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- quick search pop up card -->
+    <div class="row"
+      id="quickSearchPopUp">
+      <div class="col s11 m11">
+        <div class="card">
+          <div class="card-image">
+            <a class="btn-floating btn-large waves-effect waves-light red right">
+              <i class="material-icons" id="popUpClose">close</i></a>
+            <img src="./images/bike-3.jpeg">
+            <span class="card-title">QUICK SEARCH</span>
+          </div>
+          <div class="card-content">
+            <p>ENTER CITY NAME AND HIT SEARCH</p>
+            <form action="">
+              <input type="text"
+                id="quickSearchText"
+                placeholder="U.S. City search: 'Denver, CO'"
+                min=1><br>
+              <a type="submit"
+                class="waves-effect waves-light btn-small"
+                id="quickSearchSubmit">Search</a>
+              <!-- //alert card for quick search -->
+              <div class="row"
+                id="quickAlertCard">
+                <div class="col s8 m8 alertCard">
+                  <div class="card-panel pink lighten-2">
+                    <span class="white-text"><h6>Ooops! We didn't find what you were looking for:</h6>Please re-enter City search (...for U.S. Cities include State abbr. <br>
+                        eg: 'Denver, CO') <br>some cities do not have Bike Share programs yet...<br>
+                        <a id="errorMessageLinkquick" href="" target="_blank">Try your luck here</a>
+                 </span>
+                  </div>
+                </div>
+            </form>
+
+            </div>
+            <div class="card-action">
+              <p id="location">Search Location</p>
+              <p id="company">Bike Company</p>
+              <a href="https://www.google.com/search?ei=ueCfW4HwKs3j_AaTtJfYBg&q=bike+share+galvanize"
+            
+                target="_blank"
+                id="quickSearchGSearch">Get more information/Map</a>
+              <p id="quickWeatherDesc"></p>
+              <p id="quickWeather"></p>
+              <p id="quickWeatherWind"></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- full search pop up trip plan -->
+    <div class="row"
+      id="tripPlanPopUp">
+      <div class="col s11 m11">
+        <div class="card">
+          <div class="card-image">
+            <a class="btn-floating btn-large waves-effect waves-light red right">
+              <i class="material-icons" id="popUpClose2">close</i></a>
+            <img id="fullTripImage"
+              src="./images/tripPlan.jpeg">
+            <span class="card-title">TRIP PLANNING</span>
+          </div>
+          <div class="card-content">
+
+            <p>ENTER CITY NAME AND HIT SEARCH</p>
+            <form action="">
+              <input type="text"
+                id="tripPlanText"
+                placeholder="U.S. City search: 'Denver, CO'">
+              <br>
+              <a type="submit"
+                class="waves-effect waves-light btn-small"
+                id="tripPlanSubmit">Search</a>
+              <!-- //alert card for trip search -->
+              <div class="row"
+                id="tripAlertCard">
+                <div class="col s8 m8  alertCard">
+                  <div class="card-panel pink lighten-2">
+                    <span class="white-text"><h6>Ooops! We didn't find what you were looking for:</h6>Please re-enter City search (...for U.S. Cities include State abbr. <br>
+                        eg: 'Denver, CO') <br>Some cities do not have Bike Share programs yet...<br>
+                          <a id="errorMessageLinktrip" href="" target="_blank">Try your luck here</a>
+                        
+                 </span>
+                  </div>
+                </div>
+              </div>
+
+            </form>
+
+
+          </div>
+          <div class="card-action">
+            <h4 id="tripLocation">Location: </h4>
+            <p id="tripCompany">Bike Share Company:</p>
+            <a href="https://www.google.com/search?ei=ueCfW4HwKs3j_AaTtJfYBg&q=bike+share+API"
+          
+              target="_blank"
+              id="tripPlanGSearch">Get more information/Map</a>
+            <div class="weatherDisplay">
+              <p id="tripWeatherDesc"></p>
+              <p id="tripWeather"></p><img src=""
+                id="tripWeatherImg1"
+                class="tripWeatherIcon"
+                alt="">
+              <p id="tripWeatherTom"></p><img src=""
+                id="tripWeatherImg2"
+                class="tripWeatherIcon"
+                alt="">
+              <p id="tripWeatherTwoDays"></p><img src=""
+                id="tripWeatherImg3"
+                class="tripWeatherIcon"
+                alt="">
+              <p id="tripWeatherThreeDays"></p><img src=""
+                id="tripWeatherImg4"
+                class="tripWeatherIcon"
+                alt="">
+            </div>
+
+            <p id="tripWeatherWind"></p>
+            <div id="tripFavs">
+              <p id="tripPlanMessage">add to trip plan</p>
+              <i class="material-icons add"
+                id="favorites">add</i>
+            </div>
+
+            <!-- <iframe id="tripMap"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15991.660136032211!2d10.73467878005439!3d59.93284710675533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa07b6be394f339d8!2sOslo+City+bikes%2C+Adamstuen!5e0!3m2!1sen!2sus!4v1537215066421"
+          
+              width="400"
+              height="300"
+              frameborder="0"
+              style="border:0"
+              allowfullscreen></iframe> -->
+
+          </div>
+        </div>
+      </div>
+
+      <!-- saved destination localstorage card -->
+      <div class="row">
+        <div class="col s10 m10"
+          id="bottomTripCard">
+          <div class="card teal lighten-1">
+            <div class="card-content white-text tripDesinations">Trip Destinations
+              <span class="card-title"
+                id="trip-card-favorites">
+              <div class="savedFavorite">
+                <p class="savedFavName"></p>
+                <p id="savedCurWeather"></p>
+                <a href=""
+                  target="_blank"
+                  id="favNavLink"
+                  class="savedCurReference"></a>
+              </div>
+              </span>
+
+            </div>
+            <div class="card-action">
+              <!-- <a href="#">This is a link</a>
+              <a href="#">This is a link</a> -->
+              <p id="clearStorageText">
+                <i class="material-icons add"
+                  id="clearStorage">delete</i></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- footer -->
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text"> 
+              <p class="logo">BIKESLY</p>
+            </h5>
+          </div>
+          <!-- <div class="col l2 s2 right">
+            <ul class="right">
+              <li><a class="grey-text text-lighten-3"
+                  href="#!">Link 1</a></li>
+              <li><a class="grey-text text-lighten-3"
+                  href="#!">Link 2</a></li>
+            </ul>
+          </div> -->
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          Q1 2018 Fischer
+          <p><a id="shoutout"
+              href="https://github.com/NABSA/gbfs/blob/master/gbfs.md"
+              target="_blank">Thanks to the GBFS Api</a></p>
+        </div>
+      </div>
+    </footer>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript"
+      src="./js/materialize.min.js"></script>
+    <script src="./js/app.js"
+      type="text/javascript"></script>
+    <!-- <script src="./js/refactor.app.js"
+      type="text/javascript"></script> -->
+  </body>
+
+</html>

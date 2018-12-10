@@ -1,0 +1,552 @@
+/* font-family: 'Fugaz One', cursive; ---- LOGO
+font-family: 'Montserrat', sans-serif; ---- PAGE */
+
+* {
+  float: none;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  color: rgb(0, 0, 0);
+  /* background-image: url("../images/header.jpeg"); */
+  background-color: radial-gradient(hsla(0, 0%, 94%, 0.44),hsla(0, 0%, 14%, 0.09));
+}
+
+main {
+   flex: 1 0 auto;
+}
+    
+header {
+  text-align: left;
+  width: 100%;
+  background-image: url("../images/header.jpeg");
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  color: hsla(0, 0%, 93%, 0.28);
+}
+
+h1.logo {
+  font-family: 'Fugaz One', monospace;
+  animation: slidein .5s linear 1s;
+  text-align: left;
+  font-size: 350%;
+  line-height: 5%;
+}
+
+p.tag-line {
+  -webkit-text-stroke-width: 0px;
+  -webkit-text-stroke-color: black;
+  color: white;
+  text-align: left; 
+}
+
+.qRefs {
+  font-family: 'Montserrat', sans-serif;
+  color: hsla(0, 0%, 93%, 0.28);
+  padding: 0px 12px;
+  font-size: 130%;
+  background-color: hsla(170, 53%, 53%, 0.67);
+  width: 300px;
+  border-radius: 3px;
+}
+
+.qRefs:hover {
+  color: pink;
+}
+
+.qRefs:visited {
+  color: hsla(0, 0%, 93%, 0.28);
+}
+
+.loginHeader {
+  float: right;
+  display: inline;
+  line-height: 50%;
+  
+}
+
+#loginCard {
+  display: none;
+  width: 80%;
+  margin: 2% 10%; 
+  border-radius: 5px;
+  
+  animation: "none"
+}
+
+#loginSubmitBtn {
+  background-color: pink;
+  border-radius: 5px;
+}
+
+#signInBtn {
+  cursor: pointer;
+  background-color: hsla(170, 53%, 53%, 0.67);
+  border-radius: 3px;
+}
+
+#signOut {
+  cursor: pointer;
+  background-color: hsla(170, 53%, 53%, 0.67);
+  border-radius: 3px;
+  float: right;
+}
+
+#signInBtn:hover {
+  color: pink;
+}
+
+#signOut:hover {
+  color: pink;
+}
+
+#displayName {
+  float: right;
+}
+
+#signInBtn:visited {
+  color: white;
+  background-color: hsla(170, 53%, 53%, 0.67);
+}
+
+#signUpHeader {
+  cursor: pointer;
+  top: 10px;
+  background-color: hsla(170, 53%, 53%, 0.67);
+  border-radius: 3px;
+}
+
+#signUpHeader:hover {
+  color: pink;
+}
+
+#userLabel {
+  color: white;
+  font-size: 150%;
+  margin-left: 12%;
+}
+
+#loginClose {
+  background-color: rgb(252, 226, 134);
+  display: inline;
+  float: right;
+  margin: 5px 5px;
+}
+
+#closeIcon {
+  font-size: 150%;
+  /* margin-bottom: 10%; */
+}
+
+p.signUP {
+  color: white;
+}
+
+a.signUP {
+  color: pink;
+}
+
+a.signUP:hover {
+  color: white;
+}
+
+p {
+  font-size: 120%;  
+}
+
+article {
+  /* padding: 35px 15px;   */
+  grid-auto-flow: row;
+}
+div.cards {
+  min-width: 400px;
+}
+
+div.row.quick1 {
+  height: 0px;
+  min-width: 300px;
+}
+
+div.row.trip1 {
+  height: 0px;
+  min-width: 300px;
+}
+
+img {
+  width: 50%;
+  height: 50%;
+}
+
+i.add {
+  background-color: rgb(252, 226, 134);
+}
+ 
+i.add:active {
+  background-color: pink;
+}
+
+.row {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0px;  
+}
+
+.row .col.s8 {
+    width: 66.6666666667%;
+    margin-left: 0px;
+    left: auto;
+    right: auto;
+}
+
+div#quickSearchPopUp {
+  display: none;
+  text-align: left;
+}
+
+#tripPlanPopUp {
+  display: none;
+  text-align: left;
+  position: inherit;
+}
+
+#quickAlertCard {
+  display: none;
+}
+
+#tripAlertCard {
+  display: none;
+}
+
+#tripPlanText {
+  width: 50%;
+}
+
+#quickSearchText {
+  width: 50%;
+}
+
+#quickSearchSubmit {
+  margin-bottom: 10px;
+  color: teal;
+}
+
+#quickSearchSubmit:hover {
+  color: hsl(342, 55%, 51%);
+}
+
+#tripPlanSubmit {
+  margin: 0px;
+  color: teal;
+}
+
+#tripPlanSubmit:hover {
+  color: hsl(342, 55%, 51%);
+}
+
+#tripPlanMessage {
+  margin: 2px;
+}
+
+.alertCard {
+  background-color: hsla(0, 0%, 49%, 0.25);
+  text-align: center;
+  align-content: center;
+  margin: 25px;
+  display: center;
+}
+
+div#tripFavs {
+  border: 3px solid rgb(252, 226, 134);
+  margin: auto;
+  width: 20%;
+  padding: 3px 0px;
+}
+
+#favorites {
+  border-radius: 15px;
+  font-size: 200%;
+}
+
+#favorites:hover {
+  cursor: pointer;
+}
+
+#clearStorage {
+  border: 3px solid rgb(252, 226, 134);
+  border-radius: 15px;
+  font-size: 200%;
+}
+
+#clearStorage:hover {
+  cursor: pointer;
+  border: 3px dashed teal;
+}
+
+div.weatherDisplay {
+  padding-left: 22%;
+  display: flex;
+  justify-content: start;
+}
+
+.tripWeatherIcon {
+  width: 8%;
+  float: right;
+}
+
+#bottomTripCard {
+  width: 100%;
+}
+
+div.col.s11.m11 {
+  margin-left: 4%;
+}
+
+div.col.s8.m8 {
+  margin: 0% 17%;
+}
+
+div.col.s8.m8.alertCard {
+  margin: 2% 18%;
+}
+
+/* footer */
+footer.page-footer {
+  font-family: 'Fugaz One', monospace;
+  background-color: hsla(0, 0%, 18%, 0.44);
+}
+
+p.logo {
+  font-family: 'Fugaz One', monospace;
+  animation: slidein .5s linear 1s;
+  text-align: left;
+}
+
+footer p {
+  font-size: 120%;
+  text-shadow: 1px 1px 1px black; 
+}
+
+#shoutout {
+  color: hsla(0, 0%, 100%, 0.79);
+  text-shadow: none;
+  text-align: center;
+  margin: 0% 15%;
+  width: 100%;
+}
+
+#shoutout:hover {
+  color: hsla(298, 100%, 89%, 0.79);
+  text-shadow: none;
+}
+
+a#tripPlanGSearch {
+  color: teal;
+  margin-right: 0px;
+  font-size: 120%;
+  padding: 5px;
+}
+
+a#tripPlanGSearch:visited {
+  color: teal;
+}
+
+a#tripPlanGSearch:hover {
+  color: pink;
+
+}
+
+a#quickSearchGSearch {
+  color: teal;
+
+  margin-right: 0px;
+  font-size: 120%;
+  padding: 5px;
+}
+
+a#quickSearchGSearch:visited {
+  color: teal;
+}
+
+a#quickSearchGSearch:hover {
+  color: pink;
+}
+
+#errorMessageLinktrip {
+  color: rgb(252, 226, 134);
+  font-size: 120%;
+  cursor: pointer;
+}
+
+#errorMessageLinkquick {
+  color: rgb(252, 226, 134);
+    font-size: 120%;
+    cursor: pointer;
+}
+
+.card-action {
+  padding: 20px;
+}
+
+
+#errorMessageLinktrip:hover {
+  color: pink;
+}
+
+#errorMessageLinkquick:hover {
+  color: pink;
+}
+
+div.favSavedCities {
+  display: none;
+  border: 1px solid rgb(252, 226, 134);
+  padding: 2px;
+}
+
+#favNavLink {
+  color: rgb(252, 226, 134);
+  font-size: 120%;
+  cursor: pointer;
+}
+
+#favNavLink:hover {
+  color: pink;
+}
+
+.tripDesinations {
+  font-size: 150%;
+  border-bottom: 2px solid rgb(252, 226, 134);
+}
+
+.savedFavorite {
+  border-bottom: 1px dashed pink;
+  font-size: 90%;
+  width: 85%;
+  margin: 4px 7.5%;
+  margin-bottom: 2px;
+}
+
+p.logo {
+  margin: 0px;
+  padding: 0; 
+}
+
+/* phone screen edits   */
+
+@media screen and (max-width: 450px) {
+  body {
+    display:flex
+  }
+  
+  header {
+    width: 100%
+  }
+  
+  article.cards {
+    width: 100%;
+    flex-direction: column;
+    padding-top: 0px; 
+    padding-bottom: 2px;   
+    /* justify-content: center;
+    align-items: center;  */
+  }
+  
+  P.hidemeonphone {
+    display: none;
+  }
+  
+  .col.s6.m6 {
+    width: 100%;
+  }
+  
+  #quickSearchText {
+      width: 80%;
+    }
+  
+  #tripPlanText {
+    width: 80%;
+  }
+  
+  #tripPlanPopUp {
+    display: none;
+    text-align: left;
+  }
+  
+  div#quickSearchPopUp {
+    display: none;
+    text-align: left;
+  }
+
+  
+  div#tripFavs {
+    width: 60%;
+  }
+   div.savedFavorite {
+     font-size: 80%;
+   }
+  
+  div.card-content {
+    width: 100%;
+  }
+  
+  footer {
+    width: 100%;
+    line-height: 2%;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  div.bothCards {
+    display: inline;
+  }
+  
+  #loginCard {
+    text-align: center;
+  }
+  
+  #userLabel {
+    margin-left: 5%;
+  }
+  
+  div.card {
+    /* float: right; */
+    float: none
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  #bottomTripCard {
+    float: none
+    padding: 5px;
+    border-radius: 5px;
+  }
+}
+
+
+
+
+
+
+/* animations */
+@keyframes slidein {
+  0% { 
+    color: rgba(238, 238, 238, 0.08);
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  100%   { 
+    opacity: 1;
+    transform: scaleX(1); }
+}
+
+@keyframes fade-out {
+    0%   {opacity: 100%;}
+    25%  {background-color: rgb(252, 226, 134);
+    opacity: 75%}
+    50%  {background-color: hsla(170, 53%, 53%, 0.67);
+    opacity:40%}
+    100% {opacity: 0;}
+}
