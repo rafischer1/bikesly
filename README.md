@@ -8,7 +8,7 @@
 
 ### Screen Shots - Mobile:
 
-![desktop](./resources/desktop-screen-shot-Bikesly.png)
+![desktop](./resources/desktop-screen-shot-Bikesly.PNG)
 
 ![mobile-screen](./resources/bikesley-home-screen-1.PNG)![mobile-screen](./resources/bikesly-trip-plan-screen-shot-1.PNG)
 

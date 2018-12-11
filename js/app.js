@@ -433,35 +433,6 @@ const tripPlan = () => {
                   const threeDaysconversion = () => (1.8 * (tempKtwoDays - 273) + 32).toFixed(1)
                   tempFthreeDays = threeDaysconversion(tempKthreeDays)
 
-                  //days 
-                  // let d = new Date()
-                  // var currentDate = d.getDay()
-                  // console.log(d.getDay() + 1)
-                  // let tomorrow = d.getDay() + 1
-                  // let twoDays = d.getDay() + 2
-                  // 
-                  // if (tomorrow = 1) {
-                  //   tomorrow = 'monday'
-                  // } else if (tomorrow = 2) {
-                  //   tomorrow = 'tuesday'
-                  // } else if (tomorrow = 3) {
-                  //   tomorrow = 'wednesday'
-                  // } else if (tomorrow = 4) {
-                  //   tomorrow = 'thursday'
-                  // } else if (tomorrow = 5) {
-                  //   tomorrow = 'friday'
-                  // } else if (tomorrow = 6) {
-                  //   tomorrow = 'saturday'
-                  // } else {
-                  //   tomorrow = 'sunday'
-                  // }
-                  // 
-                  // console.log(`tomorrow`, tomorrow)
-                  // let today = convertDay(currentDate)
-                  // let tom = convertDay(tomorrow)
-                  // let twoDaysFinal = convertDay(twoDays)
-
-
                   // // weather innerTexting
                   tripWeather.innerText = `${tempFtoday} F`
                   // tripWeatherTomorrow.innerText = `${tommorrow}: ${tempFtom} F`
@@ -470,11 +441,8 @@ const tripPlan = () => {
                   tripWeatherTwoDays.innerText = `${tempFtwoDays} F`
                   tripWeatherThreeDays.innerText = `${tempFthreeDays} F`
 
-
-                  // console.log('date tom tom?', weatherList[6].dt_txt)
-
                   //set weather icon
-                  // console.log(`weather`, weatherList[0].weather[0].icon)
+             
                   tripWeatherImage1.src = `http://openweathermap.org/img/w/${weatherList[0].weather[0].icon}.png`
                   tripWeatherImage2.src = `http://openweathermap.org/img/w/${weatherList[6].weather[0].icon}.png`
                   tripWeatherImage3.src = `http://openweathermap.org/img/w/${weatherList[14].weather[0].icon}.png`
@@ -508,7 +476,6 @@ clearStorageBtn.addEventListener('click', () => {
   tripPlanText.value = ''
   fullTripImage.src = "./images/ending.jpeg"
   parentElement.style.display = 'none'
-
 })
 
 // temperature conversion f(x)
