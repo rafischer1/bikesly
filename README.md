@@ -1,4 +1,5 @@
-# BIKESLY  - - - `the bike share search engine` 🚲
+# BIKESLY  - - - 🚲
+## the bike share search engine 
 
 * Deployed Site: http://rafischer1-q1-bikesly.surge.sh/
 

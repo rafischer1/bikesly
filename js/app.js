@@ -16,6 +16,7 @@ let signOut = document.getElementById('signOut')
 
 //DOM CONTENT LOADED
 document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(function () { alert("Make me a better and more fun application: Trip Planning, Regional Searches, Possible Adjacent Destinations..."); }, 5000);
   console.log('script: on')
   signOut.style.display = 'none'
 
@@ -157,11 +158,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // retrieve it (Or create a blank array if there isn't any info saved yet),
     let faves = JSON.parse(localStorage.getItem('favorites')) || { cities: [] }
 
-
     console.log(`cities pre-push:`, faves.cities)
     faves.cities.push([name, curFavTemp, curSearch])
     console.log(`cities post-push:`, faves.cities)
-
 
     // then put it back.
     let favesJSON = JSON.stringify(faves)
@@ -237,15 +236,13 @@ const quickSearch = () => {
     axios.get(
         `http://api.citybik.es/v2/networks?fields=id,name,href,location`
       )
-      .then(function(response) {
+      .then((response) => {
         let data = response.data
         let networks = response.data.networks
         let quickAlertCard = document.getElementById('quickAlertCard')
 
         // setting a single bike city an company
         for (let city in networks) {
-          // console.log(`empty response`, response.data.networks[city])
-          // console.log(networks[city].location.city)
           if (networks[city].location.city !== quickSearchText.value) {
             badInput = true
             if (badInput === true) {
@@ -271,12 +268,11 @@ const quickSearch = () => {
             lon = networks[city].location.longitude
 
             axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=374aebc81ab8f72a5d804b246e8f739f`)
-              .then(function(response, lat, lon) {
+              .then((response) => {
                 let tempK = parseInt(response.data.main.temp)
                 let weatherDescription = response.data.weather[0].description
                 let weatherWind = parseInt(response.data.wind.speed)
                 let windDegree = parseInt(response.data.wind.deg)
-                // console.log(lat, lon)
 
                 // temperature conversion f(x)
                 const tempConversion = (tempK) => (1.8 * (tempK - 273) + 32).toFixed(1)
@@ -290,7 +286,7 @@ const quickSearch = () => {
 
                 // let wind = windConversion(weatherWind)
                 //wind direction tempConversion
-                function windDirection(windDegree) {
+                const windDirection = (windDegree) => {
                   if (windDegree > 330) {
                     windDir = 'N'
                   } else if (windDegree <= 330 && windDegree > 290) {
@@ -350,10 +346,6 @@ const tripPlan = () => {
   // Trip Planning DOM STRING
   let tripPlanGSearch = document.getElementById('tripPlanGSearch')
   let tripPlanText = document.getElementById('tripPlanText')
-  let tipPlanSubmit = document.getElementById('tripPlanSubmit')
-  let tripMap = document.getElementById('tripMap')
-  let item
-  let appendParent = document.getElementById('trip-card-favorites')
   let tripWeatherTomorrow = document.getElementById('tripWeatherTom')
   let tripWeatherTwoDays = document.getElementById('tripWeatherTwoDays')
   let tripWeatherThreeDays = document.getElementById('tripWeatherThreeDays')
@@ -372,8 +364,7 @@ const tripPlan = () => {
     axios.get(
         `http://api.citybik.es/v2/networks?fields=id,name,href,location`
       )
-      .then(function(response) {
-        let data = response.data
+      .then((response) => {
         let networks = response.data.networks
 
         // setting a single bike city an company
@@ -391,9 +382,6 @@ const tripPlan = () => {
             }
           } else if (networks[city].location.city === tripPlanText.value) {
             badInput = false
-            tripAlertCard.style.display = "none"
-            console.log(`search city?`, networks[city].location.city)
-
 
             tripCityName.innerText = `${networks[city].location.city}`
             tripCityCompany.innerText = `City Bike rentals from: ${networks[city].name}`

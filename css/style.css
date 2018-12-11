@@ -11,9 +11,9 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  color: rgb(0, 0, 0);
+  color: #000;
   /* background-image: url("../images/header.jpeg"); */
-  background-color: radial-gradient(rgba(239, 239, 239, 0.44),rgba(35, 35, 35, 0.09));
+  background-color: radial-gradient(#efefef70,#23232317);
 }
 
 main {
@@ -26,7 +26,7 @@ header {
   background-image: url("../images/header.jpeg");
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
-  color: rgba(237, 237, 237, 0.28);
+  color: #ededed47;
 }
 
 h1.logo {
@@ -46,10 +46,10 @@ p.tag-line {
 
 .qRefs {
   font-family: 'Montserrat', sans-serif;
-  color: hsla(0, 0%, 93%, 0.28);
+  color: rgba(237, 237, 237, 0.28);
   padding: 0px 12px;
   font-size: 130%;
-  background-color: hsla(170, 53%, 53%, 0.67);
+  background-color: rgba(71, 198, 177, 0.67);
   width: 300px;
   border-radius: 3px;
 }
@@ -476,6 +476,7 @@ p.logo {
     display: none;
     text-align: left;
   }
+
   div#tripFavs {
     width: 60%;
   }
@@ -512,9 +513,8 @@ p.logo {
     padding: 5px;
     border-radius: 5px;
   }
-  
+
   #bottomTripCard {
-    float: none;
     padding: 5px;
     border-radius: 5px;
   }
