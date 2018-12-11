@@ -13,7 +13,7 @@ body {
   flex-direction: column;
   color: rgb(0, 0, 0);
   /* background-image: url("../images/header.jpeg"); */
-  background-color: radial-gradient(hsla(0, 0%, 94%, 0.44),hsla(0, 0%, 14%, 0.09));
+  background-color: radial-gradient(rgba(239, 239, 239, 0.44),rgba(35, 35, 35, 0.09));
 }
 
 main {
@@ -26,7 +26,7 @@ header {
   background-image: url("../images/header.jpeg");
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
-  color: hsla(0, 0%, 93%, 0.28);
+  color: rgba(237, 237, 237, 0.28);
 }
 
 h1.logo {
@@ -205,6 +205,7 @@ i.add:active {
 div#quickSearchPopUp {
   display: none;
   text-align: left;
+  width: 75%;
 }
 
 #tripPlanPopUp {
@@ -221,12 +222,8 @@ div#quickSearchPopUp {
   display: none;
 }
 
-#tripPlanText {
-  width: 50%;
-}
-
-#quickSearchText {
-  width: 50%;
+.cardText {
+ width: 50%;
 }
 
 #quickSearchSubmit {
@@ -480,7 +477,6 @@ p.logo {
     text-align: left;
   }
 
-  
   div#tripFavs {
     width: 60%;
   }
@@ -513,13 +509,13 @@ p.logo {
   
   div.card {
     /* float: right; */
-    float: none
+    float: none;
     padding: 5px;
     border-radius: 5px;
   }
   
   #bottomTripCard {
-    float: none
+    float: none;
     padding: 5px;
     border-radius: 5px;
   }

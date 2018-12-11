@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <title>BIKESLY</title>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css"
-      rel="stylesheet"
-      href="./css/materialize.min.css"
-      media="screen,projection" />
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Fugaz+One|Montserrat"
       rel="stylesheet">
@@ -38,7 +36,8 @@
         <div class="logo-slogan">
           <h1 class="logo">BIKESLY</h1>
 
-          <p class="tag-line">the city bike share search engine</p>
+          <p class="tag-line">the city bike share search engine
+          </p>
 
         </div>
         <hr>
@@ -142,6 +141,7 @@
             <p>ENTER CITY NAME AND HIT SEARCH</p>
             <form action="">
               <input type="text"
+              class="cardText"
                 id="quickSearchText"
                 placeholder="U.S. City search: 'Denver, CO'"
                 min=1><br>
@@ -196,6 +196,7 @@
             <p>ENTER CITY NAME AND HIT SEARCH</p>
             <form action="">
               <input type="text"
+              class="cardText"
                 id="tripPlanText"
                 placeholder="U.S. City search: 'Denver, CO'">
               <br>
@@ -209,15 +210,12 @@
                   <div class="card-panel pink lighten-2">
                     <span class="white-text"><h6>Ooops! We didn't find what you were looking for:</h6>Please re-enter City search (...for U.S. Cities include State abbr. <br>
                         eg: 'Denver, CO') <br>Some cities do not have Bike Share programs yet...<br>
-                          <a id="errorMessageLinktrip" href="" target="_blank">Try your luck here</a>
-                        
-                 </span>
+                          <a id="errorMessageLinktrip" href="" target="_blank">Try your luck here</a>    
+                     </span>
                   </div>
                 </div>
               </div>
-
             </form>
-
 
           </div>
           <div class="card-action">
@@ -253,16 +251,6 @@
               <i class="material-icons add"
                 id="favorites">add</i>
             </div>
-
-            <!-- <iframe id="tripMap"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15991.660136032211!2d10.73467878005439!3d59.93284710675533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa07b6be394f339d8!2sOslo+City+bikes%2C+Adamstuen!5e0!3m2!1sen!2sus!4v1537215066421"
-          
-              width="400"
-              height="300"
-              frameborder="0"
-              style="border:0"
-              allowfullscreen></iframe> -->
-
           </div>
         </div>
       </div>
@@ -284,11 +272,8 @@
                   class="savedCurReference"></a>
               </div>
               </span>
-
             </div>
             <div class="card-action">
-              <!-- <a href="#">This is a link</a>
-              <a href="#">This is a link</a> -->
               <p id="clearStorageText">
                 <i class="material-icons add"
                   id="clearStorage">delete</i></p>
@@ -296,7 +281,6 @@
           </div>
         </div>
       </div>
-
     </div>
 
     <!-- footer -->
@@ -308,14 +292,6 @@
               <p class="logo">BIKESLY</p>
             </h5>
           </div>
-          <!-- <div class="col l2 s2 right">
-            <ul class="right">
-              <li><a class="grey-text text-lighten-3"
-                  href="#!">Link 1</a></li>
-              <li><a class="grey-text text-lighten-3"
-                  href="#!">Link 2</a></li>
-            </ul>
-          </div> -->
         </div>
       </div>
       <div class="footer-copyright">
@@ -333,8 +309,5 @@
       src="./js/materialize.min.js"></script>
     <script src="./js/app.js"
       type="text/javascript"></script>
-    <!-- <script src="./js/refactor.app.js"
-      type="text/javascript"></script> -->
   </body>
-
 </html>

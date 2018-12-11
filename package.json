@@ -10,9 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chai-dom": "^1.8.0",
     "chai": "^4.1.2",
+    "chai-dom": "^1.8.0",
     "dom": "0.0.3",
+    "materialize-css": "^1.0.0-rc.2",
     "mocha": "^5.2.0"
   },
   "dev-dependencies": {
