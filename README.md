@@ -7,7 +7,7 @@
 
 ---
 
-### Screen Shots - Mobile:
+### Screen Shots
 
 ![desktop](./resources/desktop-screen-shot-Bikesly.PNG)
 
