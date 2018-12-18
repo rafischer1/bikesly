@@ -25,18 +25,20 @@ document.addEventListener('DOMContentLoaded', () => {
   //login and client validation
   let signIn = document.getElementById('signInBtn')
 
-
+  //sign in display toggle
   signIn.addEventListener('click', (e) => {
     console.log(`login target`, e.target)
     let loginCard = document.getElementById('loginCard')
     loginCard.style.display = 'block'
   })
 
+  //logout display toggle
   let loginClose = document.getElementById('loginClose')
   loginClose.addEventListener('click', () => {
     loginCard.style.display = 'none'
   })
-
+  
+  // false login setup with animation displays
   let loginSubmitBtn = document.getElementById('loginSubmitBtn')
 
   loginSubmitBtn.addEventListener('click', (e) => {
@@ -65,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
       (for DEMO use: 'bikesly123')`)
     }
 
+    // false sign out display with animation
     signOut.addEventListener('click', () => {
       setTimeout(() => {
         inputValidate.value = ''
