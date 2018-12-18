@@ -16,7 +16,6 @@ let signOut = document.getElementById('signOut')
 
 //DOM CONTENT LOADED
 document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(function () { alert("Make me a better and more fun application: Trip Planning, Regional Searches, Possible Adjacent Destinations..."); }, 5000);
   console.log('script: on')
   signOut.style.display = 'none'
 

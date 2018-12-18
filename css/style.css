@@ -32,7 +32,6 @@ header {
 h1.logo {
   font-family: 'Fugaz One', monospace;
   animation: slidein .5s linear 1s;
-  text-align: left;
   font-size: 350%;
   line-height: 5%;
 }
@@ -41,7 +40,6 @@ p.tag-line {
   -webkit-text-stroke-width: 0px;
   -webkit-text-stroke-color: black;
   color: white;
-  text-align: left; 
 }
 
 .qRefs {
@@ -49,7 +47,7 @@ p.tag-line {
   color: rgba(237, 237, 237, 0.28);
   padding: 0px 12px;
   font-size: 130%;
-  background-color: rgba(71, 198, 177, 0.67);
+  background-color: hsla(170, 53%, 53%, 0.67);
   width: 300px;
   border-radius: 3px;
 }
@@ -74,7 +72,7 @@ p.tag-line {
   width: 80%;
   margin: 2% 10%; 
   border-radius: 5px;
-  
+
   animation: "none"
 }
 
@@ -142,11 +140,11 @@ p.tag-line {
   /* margin-bottom: 10%; */
 }
 
-p.signUP {
+.signUP {
   color: white;
 }
 
-a.signUP {
+.signUP {
   color: pink;
 }
 
@@ -159,9 +157,9 @@ p {
 }
 
 article {
-  /* padding: 35px 15px;   */
   grid-auto-flow: row;
 }
+
 div.cards {
   min-width: 400px;
 }
@@ -201,6 +199,8 @@ i.add:active {
     left: auto;
     right: auto;
 }
+
+/* display: none for DOM toggling*/
 
 div#quickSearchPopUp {
   display: none;
@@ -519,11 +519,6 @@ p.logo {
     border-radius: 5px;
   }
 }
-
-
-
-
-
 
 /* animations */
 @keyframes slidein {
