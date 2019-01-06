@@ -1,6 +1,5 @@
 //Global vars
 let badInput = false
-let myStorage = window.localStorage
 let tempF
 let tempFtoday
 let favSearchCity
@@ -8,10 +7,10 @@ let favSearchCompany
 let lat
 let lon
 let windMPH = 0
-var windDir
-let parentElement = document.getElementById('trip-card-favorites')
-let clearStorageBtn = document.getElementById('clearStorage')
-let fullTripImage = document.getElementById('fullTripImage')
+let windDir
+const parentElement = document.getElementById('trip-card-favorites')
+const clearStorageBtn = document.getElementById('clearStorage')
+const fullTripImage = document.getElementById('fullTripImage')
 let signOut = document.getElementById('signOut')
 
 //DOM CONTENT LOADED
@@ -20,33 +19,33 @@ document.addEventListener('DOMContentLoaded', () => {
   signOut.style.display = 'none'
 
   //DOM STRINGS relevant to DOMloaded
-  let cardContainer = document.querySelector('div.bothCards')
+  const cardContainer = document.querySelector('div.bothCards')
 
   //login and client validation
-  let signIn = document.getElementById('signInBtn')
+  const signIn = document.getElementById('signInBtn')
 
   //sign in display toggle
   signIn.addEventListener('click', (e) => {
     console.log(`login target`, e.target)
-    let loginCard = document.getElementById('loginCard')
+    const loginCard = document.getElementById('loginCard')
     loginCard.style.display = 'block'
   })
 
   //logout display toggle
-  let loginClose = document.getElementById('loginClose')
+  const loginClose = document.getElementById('loginClose')
   loginClose.addEventListener('click', () => {
     loginCard.style.display = 'none'
   })
   
   // false login setup with animation displays
-  let loginSubmitBtn = document.getElementById('loginSubmitBtn')
+  const loginSubmitBtn = document.getElementById('loginSubmitBtn')
 
   loginSubmitBtn.addEventListener('click', (e) => {
-    let inputValidate = document.getElementById('userNameValidate')
-    let displayName = document.getElementById('displayName')
-    let signIn = document.getElementById('signInBtn')
-    let signUp = document.getElementById('signUpHeader')
-    let signOut = document.getElementById('signOut')
+    const inputValidate = document.getElementById('userNameValidate')
+    const displayName = document.getElementById('displayName')
+    const signIn = document.getElementById('signInBtn')
+    const signUp = document.getElementById('signUpHeader')
+    const signOut = document.getElementById('signOut')
     e.preventDefault()
     console.log(`e submit`, e.target)
     console.log(inputValidate.value)
@@ -89,10 +88,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //main page toggling function
   const popUps = () => {
-    let quickSearchBtn = document.getElementById('quickSearchCard')
-    let tripPlanningPage = document.getElementById('tripPlanPopUp')
-    let tripPlanBtn = document.getElementById('tripPlanCard')
-    let popUpQuickSearch = document.getElementById('quickSearchPopUp')
+    const quickSearchBtn = document.getElementById('quickSearchCard')
+    const tripPlanningPage = document.getElementById('tripPlanPopUp')
+    const tripPlanBtn = document.getElementById('tripPlanCard')
+    const popUpQuickSearch = document.getElementById('quickSearchPopUp')
 
     // Event listener to toggle main display
     cardContainer.addEventListener('click', (event) => {
@@ -121,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // quick search close out
     popUpClose.addEventListener('click', (event) => {
       event.preventDefault()
-      let popUpClose = document.getElementById('popUpClose')
+      const popUpClose = document.getElementById('popUpClose')
       // console.log(`x-out pop up`, event.target)
       if (event.target === popUpClose) {
         popUpQuickSearch.style.display = 'none'
@@ -133,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // trip plan close out
     popUpClose2.addEventListener('click', (event) => {
       event.preventDefault()
-      let popUpClose2 = document.getElementById('popUpClose2')
+      const popUpClose2 = document.getElementById('popUpClose2')
       // console.log(`x-out pop up`, event.target)
       if (event.target === popUpClose2) {
         popUpQuickSearch.style.display = 'none'
@@ -147,29 +146,23 @@ document.addEventListener('DOMContentLoaded', () => {
   popUps()
 
   // local storage DOM strings and functionality
-  let favSaveBtn = document.getElementById('favorites')
-  let favGet = document.querySelector('.favGetItem')
+  const favSaveBtn = document.getElementById('favorites')
 
 
-  favSaveBtn.addEventListener('click', (event) => {
-
-    let name = favSearchCity
-    let curFavTemp = `Current: ${tempFtoday}  F`
-    let curSearch = `https://www.google.com/search?ei=ueCfW4HwKs3j_AaTtJfYBg&q=${name}+${favSearchCompany}`
-
+  favSaveBtn.addEventListener('click', () => {
+    let name = favSearchCity;
+    let curFavTemp = `Current: ${tempFtoday}  F`;
+    let curSearch = `https://www.google.com/search?ei=ueCfW4HwKs3j_AaTtJfYBg&q=${name}+${favSearchCompany}`;
     // retrieve it (Or create a blank array if there isn't any info saved yet),
-    let faves = JSON.parse(localStorage.getItem('favorites')) || { cities: [] }
-
-    console.log(`cities pre-push:`, faves.cities)
-    faves.cities.push([name, curFavTemp, curSearch])
-    console.log(`cities post-push:`, faves.cities)
-
+    let faves = JSON.parse(localStorage.getItem('favorites')) || { cities: [] };
+    // console.log(`cities pre-push:`, faves.cities)
+    faves.cities.push([name, curFavTemp, curSearch]);
+    // console.log(`cities post-push:`, faves.cities)
     // then put it back.
-    let favesJSON = JSON.stringify(faves)
-    console.log(`cities as JSON:`, favesJSON);
-    localStorage.setItem('favorites', favesJSON)
-
-    getItem()
+    let favesJSON = JSON.stringify(faves);
+    // console.log(`cities as JSON:`, favesJSON);
+    localStorage.setItem('favorites', favesJSON);
+    getItem();
   })
 
   // END OF DOM CONTENT LOADED SCOPE
@@ -177,16 +170,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //setting items in the saved favs box
 const getItem = () => {
-  let childDiv = document.createElement('div')
-  let savedFavName = document.createElement('p')
-  let savedCurWeather = document.createElement('p')
-  let favNavLink = document.getElementById('favNavLink')
-  let favCurWeather = document.getElementById('favCurWeather')
-  let savedCurReference = document.createElement('a')
+  const childDiv = document.createElement('div')
+  const savedFavName = document.createElement('p')
+  const savedCurWeather = document.createElement('p')
+  const savedCurReference = document.createElement('a')
   parentElement.style.display = 'inline'
   // favGet.style.display = "inline"
 
-  item = JSON.parse(myStorage.getItem('favorites'))
+  item = JSON.parse(window.localStorage.getItem('favorites'))
 
   for (let cities in item) {
     for (let i = 0; i < item.cities.length; i++) {
@@ -218,144 +209,135 @@ const getItem = () => {
 // Quick Search Functionality and BIKE API
 const quickSearch = () => {
   // DOM Strings for quick search
-  let quickWeather = document.getElementById('quickWeather')
-  let quickWeatherDescription = document.getElementById('quickWeatherDesc')
-  let quickWeatherWind = document.getElementById('quickWeatherWind')
-  let quickSearchGSearch = document.getElementById('quickSearchGSearch')
-  let quickSearchText = document.getElementById('quickSearchText')
-  let quickSearchSubmit = document.getElementById('quickSearchSubmit')
-  let errorMessageLinkquick = document.getElementById('errorMessageLinkquick')
+  const quickWeather = document.getElementById('quickWeather')
+  const quickWeatherDescription = document.getElementById('quickWeatherDesc')
+  const quickWeatherWind = document.getElementById('quickWeatherWind')
+  const quickSearchGSearch = document.getElementById('quickSearchGSearch')
+  const quickSearchText = document.getElementById('quickSearchText')
+  const quickSearchSubmit = document.getElementById('quickSearchSubmit')
+  const errorMessageLinkquick = document.getElementById('errorMessageLinkquick')
   // quickSearchSubmit.setAttribute('type', 'submit')
 
   //quick search event listener
-  quickSearchSubmit.addEventListener('click', (event) => {
-    quickAlertCard.style.display = "none"
+  quickSearchSubmit.addEventListener('click', () => {
+    quickAlertCard.style.display = "none";
     // event.preventDefault()
-
-    console.log(`value`, quickSearchText.value)
-
+    console.log(`value`, quickSearchText.value);
     // primary axios API call to bike networks
-    axios.get(
-        `http://api.citybik.es/v2/networks?fields=id,name,href,location`
-      )
+    axios.get(`http://api.citybik.es/v2/networks?fields=id,name,href,location`)
       .then((response) => {
-        let data = response.data
-        let networks = response.data.networks
-        let quickAlertCard = document.getElementById('quickAlertCard')
-
+        let networks = response.data.networks;
+        const quickAlertCard = document.getElementById('quickAlertCard');
         // setting a single bike city an company
         for (let city in networks) {
           if (networks[city].location.city !== quickSearchText.value) {
-            badInput = true
+            badInput = true;
             if (badInput === true) {
-              console.log(`nope`)
-              quickAlertCard.style.display = "block"
-              errorMessageLinkquick.href = `https://www.google.com/search?ei=ueCfW4HwKs3j_AaTtJfYBg&q=${quickSearchText.value}+bicycle+rental`
-
+              console.log(`nope`);
+              quickAlertCard.style.display = "block";
+              errorMessageLinkquick.href = `https://www.google.com/search?ei=ueCfW4HwKs3j_AaTtJfYBg&q=${quickSearchText.value}+bicycle+rental`;
             }
-          } else if (networks[city].location.city === quickSearchText.value) {
-            badInput = false
-            quickAlertCard.style.display = "none"
-
+          }
+          else if (networks[city].location.city === quickSearchText.value) {
+            badInput = false;
+            quickAlertCard.style.display = "none";
             document.getElementById('location').innerText =
-              `${networks[city].location.city}`
-            document.getElementById('company').innerText = `City Bike rentals from: ${networks[city].name}`
-            console.log(networks[city].name)
-
+              `${networks[city].location.city}`;
+            document.getElementById('company').innerText = `City Bike rentals from: ${networks[city].name}`;
+            console.log(networks[city].name);
             //set parameters in g search href default 
-            quickSearchGSearch.href = `https://www.google.com/search?ei=ueCfW4HwKs3j_AaTtJfYBg&q=${networks[city].location.city}+${networks[city].name}`
-
+            quickSearchGSearch.href = `https://www.google.com/search?ei=ueCfW4HwKs3j_AaTtJfYBg&q=${networks[city].location.city}+${networks[city].name}`;
             // set lat and long somehow...
-            lat = networks[city].location.latitude
-            lon = networks[city].location.longitude
-
+            lat = networks[city].location.latitude;
+            lon = networks[city].location.longitude;
             axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=374aebc81ab8f72a5d804b246e8f739f`)
               .then((response) => {
-                let tempK = parseInt(response.data.main.temp)
-                let weatherDescription = response.data.weather[0].description
-                let weatherWind = parseInt(response.data.wind.speed)
-                let windDegree = parseInt(response.data.wind.deg)
-
+                let tempK = parseInt(response.data.main.temp);
+                let weatherDescription = response.data.weather[0].description;
+                let weatherWind = parseInt(response.data.wind.speed);
+                let windDegree = parseInt(response.data.wind.deg);
                 // temperature conversion f(x)
-                const tempConversion = (tempK) => (1.8 * (tempK - 273) + 32).toFixed(1)
-                tempF = tempConversion(tempK)
-
+                const tempConversion = (tempK) => (1.8 * (tempK - 273) + 32).toFixed(1);
+                tempF = tempConversion(tempK);
                 // wind conversion f(x)
-                const windConversion = (weatherWind) =>
-                  (weatherWind * 2.2369).toFixed(2)
-                windMPH = windConversion(weatherWind)
-                console.log(`windMPH`, parseInt(windMPH))
-
+                const windConversion = (weatherWind) => (weatherWind * 2.2369).toFixed(2);
+                windMPH = windConversion(weatherWind);
+                console.log(`windMPH`, parseInt(windMPH));
                 // let wind = windConversion(weatherWind)
                 //wind direction tempConversion
                 const windDirection = (windDegree) => {
                   if (windDegree > 330) {
-                    windDir = 'N'
-                  } else if (windDegree <= 330 && windDegree > 290) {
-                    windDir = "NW"
-                  } else if (windDegree <= 290 && windDegree > 250) {
-                    windDir = "W"
-                  } else if (windDegree <= 250 && windDegree > 210) {
-                    windDir = "SW"
-                  } else if (windDegree <= 210 && windDegree > 140) {
-                    windDir = "S"
-                  } else if (windDegree <= 140 && windDegree > 120) {
-                    windDir = "SE"
-                  } else if (windDegree <= 120 && windDegree > 80) {
-                    windDir = "E"
-                  } else if (windDegree <= 80 && windDegree > 30) {
-                    windDir = "NE"
-                  } else {
-                    windDir = "N"
+                    windDir = 'N';
                   }
-                  return windDir
-                }
-                winDir = windDirection(windDegree)
+                  else if (windDegree <= 330 && windDegree > 290) {
+                    windDir = "NW";
+                  }
+                  else if (windDegree <= 290 && windDegree > 250) {
+                    windDir = "W";
+                  }
+                  else if (windDegree <= 250 && windDegree > 210) {
+                    windDir = "SW";
+                  }
+                  else if (windDegree <= 210 && windDegree > 140) {
+                    windDir = "S";
+                  }
+                  else if (windDegree <= 140 && windDegree > 120) {
+                    windDir = "SE";
+                  }
+                  else if (windDegree <= 120 && windDegree > 80) {
+                    windDir = "E";
+                  }
+                  else if (windDegree <= 80 && windDegree > 30) {
+                    windDir = "NE";
+                  }
+                  else {
+                    windDir = "N";
+                  }
+                  return windDir;
+                };
+                winDir = windDirection(windDegree);
                 // weather API 
                 // let weatherKey = '374aebc81ab8f72a5d804b246e8f739f'
                 // weather innerTexting
-                quickWeather.innerText = `Current temp: ${tempF} F`
-                quickWeatherDescription.innerText = `Current forecast: ${weatherDescription}`
-                quickWeatherWind.innerText = `Current Wind Speed: ${windMPH} mph Dir: ${windDir}`
-
-
-              })
-
-            return badInput
+                quickWeather.innerText = `Current temp: ${tempF} F`;
+                quickWeatherDescription.innerText = `Current forecast: ${weatherDescription}`;
+                quickWeatherWind.innerText = `Current Wind Speed: ${windMPH} mph Dir: ${windDir}`;
+              });
+            return badInput;
           }
         }
       })
-      .catch(function(error) {
+      .catch(function (error) {
         // handle error
         console.log(error);
-      })
+      });
   })
 }
 quickSearch()
 
 // Trip Planning Functionality and API calls //DOM STRINGS
-let tripWeatherTomorrow = document.getElementById('tripWeatherTom')
-let tripWeatherTwoDays = document.getElementById('tripWeatherTwoDays')
-let tripWeatherThreeDays = document.getElementById('tripWeatherThreeDays')
-let tripWeatherImage1 = document.getElementById('tripWeatherImg1')
-let tripWeatherImage2 = document.getElementById('tripWeatherImg2')
-let tripWeatherImage3 = document.getElementById('tripWeatherImg3')
-let tripWeatherImage4 = document.getElementById('tripWeatherImg4')
-let tripCityCompany = document.getElementById('tripCompany')
+const tripWeatherTomorrow = document.getElementById('tripWeatherTom')
+const tripWeatherTwoDays = document.getElementById('tripWeatherTwoDays')
+const tripWeatherThreeDays = document.getElementById('tripWeatherThreeDays')
+const tripWeatherImage1 = document.getElementById('tripWeatherImg1')
+const tripWeatherImage2 = document.getElementById('tripWeatherImg2')
+const tripWeatherImage3 = document.getElementById('tripWeatherImg3')
+const tripWeatherImage4 = document.getElementById('tripWeatherImg4')
+const tripCityCompany = document.getElementById('tripCompany')
 
-let tripCityName = document.getElementById('tripLocation')
+const tripCityName = document.getElementById('tripLocation')
 const tripPlan = () => {
   // Trip Planning DOM STRING
-  let tripPlanGSearch = document.getElementById('tripPlanGSearch')
-  let tripPlanText = document.getElementById('tripPlanText')
-  let tripWeatherTomorrow = document.getElementById('tripWeatherTom')
-  let tripWeatherTwoDays = document.getElementById('tripWeatherTwoDays')
-  let tripWeatherThreeDays = document.getElementById('tripWeatherThreeDays')
-  let tripWeatherImage1 = document.getElementById('tripWeatherImg1')
-  let tripWeatherImage2 = document.getElementById('tripWeatherImg2')
-  let tripWeatherImage3 = document.getElementById('tripWeatherImg3')
-  let tripWeatherImage4 = document.getElementById('tripWeatherImg4')
-  let errorMessageLinktrip = document.getElementById('errorMessageLinktrip')
+  const tripPlanGSearch = document.getElementById('tripPlanGSearch')
+  const tripPlanText = document.getElementById('tripPlanText')
+  const tripWeatherTomorrow = document.getElementById('tripWeatherTom')
+  const tripWeatherTwoDays = document.getElementById('tripWeatherTwoDays')
+  const tripWeatherThreeDays = document.getElementById('tripWeatherThreeDays')
+  const tripWeatherImage1 = document.getElementById('tripWeatherImg1')
+  const tripWeatherImage2 = document.getElementById('tripWeatherImg2')
+  const tripWeatherImage3 = document.getElementById('tripWeatherImg3')
+  const tripWeatherImage4 = document.getElementById('tripWeatherImg4')
+  const errorMessageLinktrip = document.getElementById('errorMessageLinktrip')
 
   tripPlanSubmit.addEventListener('click', (event) => {
     event.preventDefault()
@@ -399,7 +381,7 @@ const tripPlan = () => {
             //trip planning weather API call
             // 3 hour multi day forecast: https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=374aebc81ab8f72a5d804b246e8f739f
             axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=374aebc81ab8f72a5d804b246e8f739f`)
-              .then(function(response, lat, lon) {
+              .then(function(response) {
                 // console.log(`weather:`, response.data.list)
                 let weatherList = response.data.list
                 console.log(`weather list`, weatherList)
@@ -450,7 +432,7 @@ tripPlan()
 //clear local storage function
 clearStorageBtn.addEventListener('click', () => {
   console.log(`clear storage...`)
-  localStorage.clear()
+  window.localStorage.clear()
   tripWeather.innerText = ``
   tripWeatherTomorrow.innerText = ``
   tripWeatherTwoDays.innerText = ``
@@ -473,8 +455,7 @@ const tempConversion = (tempK) => (1.8 * (tempK - 273) + 32).toFixed(1)
 tempF = tempConversion()
 
 // wind conversion f(x)
-const windConversion = (weatherWind) =>
-  (weatherWind * 2.2369).toFixed(2)
+const windConversion = (weatherWind) => (weatherWind * 2.2369).toFixed(2)
 windMPH = windConversion()
 
 //wind direction tempConversion
