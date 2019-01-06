@@ -61,10 +61,8 @@ p.tag-line {
 }
 
 .loginHeader {
-  float: right;
   display: inline;
   line-height: 50%;
-  
 }
 
 #loginCard {
@@ -131,7 +129,6 @@ p.tag-line {
 #loginClose {
   background-color: rgb(252, 226, 134);
   display: inline;
-  float: right;
   margin: 5px 5px;
 }
 
